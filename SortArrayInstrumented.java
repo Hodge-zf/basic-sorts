@@ -13,9 +13,19 @@ public class SortArrayInstrumented {
 
     private long comparisons;
 
+    private long totalComparisons;
+
+    private long minComparisons;
+
+    private long maxComparisons;
+
     public void SortArrayInstrumented(){
 
       comparisons = 0;
+
+      minComparisons = Long.MAX_VALUE;
+
+      maxComparisons = 0;
 
     }
 
@@ -23,6 +33,16 @@ public class SortArrayInstrumented {
 
       return comparisons;
 
+    }
+
+    public long getMinComparisons(){
+
+      return minComparisons;
+    }
+
+    public long getMaxComparisons(){
+
+      return maxComparisons;
     }
 
     /**************************************************************
