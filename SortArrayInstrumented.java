@@ -148,7 +148,9 @@ public class SortArrayInstrumented {
     public <T extends Comparable<? super T>>
     void insertionSort(T[] a, int n)
     {
+      startStatistics();
         insertionSort(a, 0, n-1);
+      endStatistics();
     } // end insertionSort
 
 
@@ -184,17 +186,21 @@ public class SortArrayInstrumented {
     void insertInOrder(T anEntry, T[] a, int begin, int end)
     {
     // Inserts entry into the sorted array entrys a[first] through a[last].
-    if (anEntry.compareTo(a[end]) >= 0)
+    if (anEntry.compareTo(a[end]) >= 0){
+        comparisons++;
         a[end+1] = anEntry;
+      }
             else if (begin < end)
             {
                 a[end+1] = a[end];
                 insertInOrder(anEntry, a, begin, end-1);
+                comparisons++;
             }
             else // begin == end and enEntry < a[end]
             {
                 a[end+1] = a[end];
                 a[end] = anEntry;
+                comparisons++;
             }
     }  // end insertInOrder
 

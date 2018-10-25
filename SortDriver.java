@@ -36,7 +36,7 @@ public class SortDriver
 
 
           System.out.println("The array is: " + getString(data));
-          sai.selectionSort(data, arraySize);
+          sai.insertionSort(data, arraySize);
 
 
           System.out.println("The sorted array is: " + getString(data));
