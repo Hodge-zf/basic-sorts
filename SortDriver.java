@@ -26,20 +26,25 @@ public class SortDriver
         System.out.println("What size arrays should be used?");
         arraySize = getInt("   It should be an integer value greater than or equal to 1.");
 
+        System.out.println("How many trials should be done?");
+        trials = getInt("   It should be an integer value greater than or equal to 1.");
+
         // MODIFY THE FOLLOWING TO GET THE NUMBER OF TRIALS AND LOOP
-            data = generateRandomArray(arraySize);
+        data = generateRandomArray(arraySize);
 
-            System.out.println("The array is: " + getString(data));
-            sai.selectionSort(data, arraySize);
+        for (int i = 1; i <= trials; i++){
 
-
-            System.out.println("The sorted array is: " + getString(data));
-
-        // ADD CODE TO REPORT THE NUMBER OF COMPARISONS
-
-            System.out.println("comparison made: "+sai.getComparisons());
+          System.out.println("The array is: " + getString(data));
+          sai.selectionSort(data, arraySize);
 
 
+          System.out.println("The sorted array is: " + getString(data));
+
+              // ADD CODE TO REPORT THE NUMBER OF COMPARISONS
+
+          System.out.println("comparison made: "+sai.getComparisons());
+
+        }
     }
 
 
