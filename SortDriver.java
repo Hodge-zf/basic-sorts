@@ -43,13 +43,15 @@ public class SortDriver
 
               // ADD CODE TO REPORT THE NUMBER OF COMPARISONS
 
-          System.out.println("comparison made: "+sai.getComparisons());
+          System.out.println("comparisons made: "+sai.getComparisons());
 
         }
 
         System.out.println("The minimum number of comparisons is: " + sai.getMinComparisons());
         System.out.println("The maximum number of comparisons is: " + sai.getMaxComparisons());
         System.out.println("The total number of comparisons is: " + sai.getTotalComparisons());
+
+        System.out.println("The average number of comparisons is: " + sai.getTotalComparisons()/trials);
     }
 
 
