@@ -30,9 +30,10 @@ public class SortDriver
         trials = getInt("   It should be an integer value greater than or equal to 1.");
 
         // MODIFY THE FOLLOWING TO GET THE NUMBER OF TRIALS AND LOOP
+        for (int i = 1; i <= trials; i++){
+
         data = generateRandomArray(arraySize);
 
-        for (int i = 1; i <= trials; i++){
 
           System.out.println("The array is: " + getString(data));
           sai.selectionSort(data, arraySize);
@@ -45,6 +46,10 @@ public class SortDriver
           System.out.println("comparison made: "+sai.getComparisons());
 
         }
+
+        System.out.println("The minimum number of comparisons is: " + sai.getMinComparisons());
+        System.out.println("The maximum number of comparisons is: " + sai.getMaxComparisons());
+        System.out.println("The total number of comparisons is: " + sai.getTotalComparisons());
     }
 
 

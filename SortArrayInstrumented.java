@@ -45,6 +45,35 @@ public class SortArrayInstrumented {
       return maxComparisons;
     }
 
+    public long getTotalComparisons(){
+
+      return totalComparisons;
+    }
+
+    /**************************************************************
+     * STATISTICS
+     **************************************************************/
+
+     private void startStatistics(){
+
+       comparisons = 0;
+     }
+
+     private void endStatistics(){
+
+       totalComparisons = totalComparisons + comparisons;
+
+      if (minComparisons < comparisons){
+
+        minComparisons = comparisons;
+      }
+
+      if (maxComparisons < comparisons){
+
+        maxComparisons = comparisons;
+      }
+     }
+
     /**************************************************************
      * ITERATIVE SELECTION SORT
      **************************************************************/
@@ -55,11 +84,17 @@ public class SortArrayInstrumented {
      */
     public <T extends Comparable<? super T>>
     void selectionSort(T[] a, int n) {
+
+      startStatistics();
+
         for (int index = 0; index < n - 1; index++) {
             int indexOfNextSmallest = getIndexOfSmallest(a, index, n - 1);
             swap(a, index, indexOfNextSmallest);
             // Assertion: a[0] <= a[1] <= . . . <= a[index] <= all other a[unsorted]
         } // end for
+
+      endStatistics();
+
     } // end selectionSort
 
     /** Finds the index of the smallest value in an array a.
