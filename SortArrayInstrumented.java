@@ -15,15 +15,13 @@ public class SortArrayInstrumented {
 
     private long totalComparisons;
 
-    private long minComparisons;
+    private long minComparisons = Long.MAX_VALUE;
 
     private long maxComparisons;
 
     public void SortArrayInstrumented(){
 
       comparisons = 0;
-
-      minComparisons = Long.MAX_VALUE;
 
       maxComparisons = 0;
 
@@ -57,21 +55,22 @@ public class SortArrayInstrumented {
      private void startStatistics(){
 
        comparisons = 0;
+
      }
 
      private void endStatistics(){
 
        totalComparisons = totalComparisons + comparisons;
 
-      if (minComparisons < comparisons){
+       if (minComparisons > comparisons){
 
-        minComparisons = comparisons;
-      }
+         minComparisons = comparisons;
+       }
 
-      if (maxComparisons < comparisons){
+       if (maxComparisons < comparisons){
 
         maxComparisons = comparisons;
-      }
+       }
      }
 
     /**************************************************************
