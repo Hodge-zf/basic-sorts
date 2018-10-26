@@ -282,7 +282,9 @@ public class SortArrayInstrumented {
      */
     public <T extends Comparable<? super T>>
     void shellSort(T[] a, int n) {
+        startStatistics();
         shellSort(a, 0, n - 1);
+        endStatistics();
     } // end shellSort
 
     /** Use incremental insertion sort with different increments to
@@ -320,7 +322,11 @@ public class SortArrayInstrumented {
         {
             T nextToInsert = a[unsorted];
             index = unsorted - space;
+            if ((index >= first) && !(nextToInsert.compareTo(a[index]) < 0)){
+              comparisons++;
+            }
             while ((index >= first) && (nextToInsert.compareTo(a[index]) < 0)){
+                comparisons++;
                 a[index + space] = a[index];
                 index = index - space;
             } // end while
